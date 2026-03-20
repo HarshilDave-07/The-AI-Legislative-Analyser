@@ -200,7 +200,7 @@ No user tracking or analytics
 Server-side API handling for security
 
 🤝 Contributing
-
+ 
 Contributions are welcome:
 
 git checkout -b feature/your-feature
