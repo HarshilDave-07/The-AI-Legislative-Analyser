@@ -1,228 +1,217 @@
-# Legislative Analysis Platform
+🏛️ AI Legislative Intelligence Platform
 
-**Last Updated: January 2025**
+Last Updated: March 20, 2026
 
-Doge is a sophisticated, AI-powered platform designed to bring clarity and transparency to the complex world of legislation. It allows users to upload two versions of a legislative document and receive a comprehensive, easy-to-understand analysis of the changes, the stakeholders involved, and the potential long-term impacts.
+Doge is an advanced AI-driven legislative intelligence platform built to simplify how people understand complex laws and policy documents. It enables users to upload and compare different versions of legal documents and instantly receive structured insights, impact analysis, and stakeholder breakdowns.
 
-This tool is built for legislative staffers, journalists, and engaged citizens who need to quickly understand the substance and implications of a bill without spending days wading through dense legal jargon.
+Designed for policymakers, journalists, researchers, and informed citizens, Doge eliminates the need to manually decode dense legal text—turning hours of analysis into seconds.
 
-## 🚀 Live Demo & Key Features
+✨ Overview
 
-*(Link to your live demo deployed on Vercel/Netlify would go here)*
+Modern legislation is often difficult to interpret due to its length, technical language, and constant revisions. Doge addresses this by combining artificial intelligence with intuitive design to deliver:
 
-*   **Document Comparison:** Upload `.pdf` versions of a bill for side-by-side analysis.
-*   **Executive Summary:** Get a high-level overview of the most critical changes with detailed citations.
-*   **Interactive Stakeholder Analysis:** Visualize the impact on different groups with interactive charts.
-*   **Visual Impact Forecast:** Understand the short, medium, and long-term consequences with a clear timeline view.
-*   **Clean, Professional UI:** A polished, government-inspired interface that makes complex data easy to digest.
-*   **Evidence-Based Analysis:** Direct quotes and citations included for verification and transparency.
+Clear summaries of legal changes
 
-## 🧠 The AI Architecture: FastAPI + OpenAI Integration
+Side-by-side comparisons of documents
 
-The core of this project uses a **FastAPI backend** with **OpenAI integration** for intelligent document analysis. The system processes PDF documents and provides comprehensive legislative analysis through structured AI prompts.
+Insights into affected stakeholders
 
-### Architecture Diagram
+Future impact predictions based on data
 
-```mermaid
-graph TD
-    subgraph "Frontend (Next.js)"
-        A["User Uploads Two PDF Documents"] --> B["File Upload Component"]
-        B --> C["Document Processing"]
-    end
+⚡ Core Capabilities
+📄 Smart Document Comparison
 
-    subgraph "Backend (FastAPI)"
-        D["PDF Text Extraction<br/>(PyPDF2)"] --> E["Text Processing"]
-        E --> F["OpenAI API Integration"]
-        F --> G["Structured Analysis"]
-    end
+Upload two PDF versions of a bill or policy and instantly detect meaningful differences.
 
-    subgraph "AI Analysis Pipeline"
-        H["Executive Summary<br/>Generation"] --> I["Stakeholder Analysis"]
-        I --> J["Impact Forecasting"]
-        J --> K["JSON Response Builder"]
-    end
+🧾 AI-Generated Summaries
 
-    subgraph "Frontend Rendering"
-        L["Interactive Charts<br/>(Recharts)"] --> M["Document Comparison"]
-        M --> N["Timeline Visualization"]
-        N --> O["Stakeholder Impact"]
-    end
+Get concise, structured overviews of major updates with supporting references.
 
-    C --> D
-    G --> H
-    K --> L
+👥 Stakeholder Insights
 
-    style A fill:#e9d5ff,stroke:#581c87
-    style O fill:#c7d2fe,stroke:#3730a3
-    style K fill:#dcfce7,stroke:#166534
-    style F fill:#fef9c3,stroke:#854d0e
-```
+Identify which groups are impacted and how, using categorized analysis.
 
-### How It Works:
+📊 Impact Projection
 
-1.  **Document Upload & Processing:** Users upload two PDF documents through the Next.js frontend. The FastAPI backend uses PyPDF2 to extract text from both documents.
+Visualize short-term and long-term consequences (1-year, 3-year, 5-year outlook).
 
-2.  **AI Analysis:** The extracted text is sent to OpenAI's GPT-4o-mini model with carefully crafted prompts that request structured JSON responses containing:
-    - Executive summary with key changes and citations
-    - Stakeholder analysis identifying affected groups
-    - Impact forecasting for economic, social, and political effects
+🎯 Evidence-Based Output
 
-3.  **Structured Response:** The AI returns a comprehensive JSON structure that includes:
-    - Document overview and primary subject
-    - Key debate topics with supporting quotes
-    - Most significant changes with evidence
-    - Political implications and implementation challenges
-    - Stakeholder analysis with effect categorization
-    - Impact forecasts for 1-year, 3-year, and 5-year timelines
+All insights include extracted quotes and references from the original documents.
 
-4.  **Interactive Frontend:** The Next.js frontend renders the analysis results using:
-    - Interactive charts and visualizations (Recharts)
-    - Side-by-side document comparison
-    - Timeline-based impact forecasting
-    - Stakeholder analysis with categorization
-    - Evidence-based citations and quotes
+🎨 Clean Interface
 
-## 🛠️ Tech Stack
+A minimal, professional UI inspired by government platforms for clarity and usability.
 
-*   **Backend:**
-    *   [FastAPI](https://fastapi.tiangolo.com/): Modern, fast web framework for building APIs
-    *   [PyPDF2](https://pypdf2.readthedocs.io/): PDF text extraction and processing
-    *   [OpenAI](https://openai.com/): State-of-the-art text generation and analysis
-    *   [Uvicorn](https://www.uvicorn.org/): ASGI server for FastAPI
-    *   [Pydantic](https://pydantic.dev/): Data validation and settings management
+🧠 System Architecture
 
-*   **Frontend:**
-    *   [Next.js 15](https://nextjs.org/) & [React 19](https://react.dev/): For building the user interface
-    *   [TypeScript](https://www.typescriptlang.org/): For type-safe code
-    *   [Tailwind CSS 4](https://tailwindcss.com/): For utility-first styling
-    *   [Recharts](https://recharts.org/): For creating interactive data visualizations
-    *   [Framer Motion](https://www.framer.com/motion/): For smooth animations
-    *   [React PDF](https://react-pdf.org/): For PDF preview and processing
-    *   [Axios](https://axios-http.com/): For making API requests
+The platform is powered by a modern AI pipeline combining backend processing with intelligent analysis.
 
-*   **Development Tools:**
-    *   [pnpm](https://pnpm.io/): For fast and efficient package management
-    *   [ESLint](https://eslint.org/): For code linting
-    *   [Vercel](https://vercel.com/): For deployment (recommended)
+🔧 Workflow
 
-## 🚀 Getting Started
+File Upload
+Users upload two PDF documents via the frontend interface.
 
-### Prerequisites
+Text Extraction
+The backend processes files using PDF parsing tools to extract raw content.
 
-*   Node.js (v18 or later)
-*   Python 3.8 or later
-*   pnpm (or npm/yarn)
-*   An OpenAI API key
+AI Processing
+Extracted text is analyzed using OpenAI models with structured prompts.
 
-### Installation & Setup
+Structured Output
+The AI returns organized JSON containing:
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/contest-doge.git
-    cd contest-doge
-    ```
+Key changes
 
-2.  **Install frontend dependencies:**
-    ```bash
-    pnpm install
-    ```
+Summary insights
 
-3.  **Install backend dependencies:**
-    ```bash
-    cd backend
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    pip install -r ../requirements.txt
-    cd ..
-    ```
+Stakeholder effects
 
-4.  **Set up your environment variables:**
-    Create a new file named `.env.local` in the root of the project and add your OpenAI API key:
-    ```
-    OPENAI_API_KEY=your_openai_api_key_here
-    ```
+Policy implications
 
-5.  **Start the backend server:**
-    ```bash
-    cd backend
-    python main.py
-    ```
-    The FastAPI server will start on `http://localhost:8000`
+Frontend Visualization
+Data is displayed through charts, timelines, and comparison views.
 
-6.  **Start the frontend development server:**
-    ```bash
-    pnpm dev
-    ```
+🛠️ Technology Stack
+Backend
 
-The application should now be running at [http://localhost:3000](http://localhost:3000). You can start by uploading two PDF documents on the homepage.
+FastAPI (API framework)
 
-## 📁 Project Structure
+PyPDF2 (document parsing)
 
-```
+OpenAI API (AI analysis)
+
+Uvicorn (server)
+
+Pydantic (data validation)
+
+Frontend
+
+Next.js + React
+
+TypeScript
+
+Tailwind CSS
+
+Recharts (data visualization)
+
+Framer Motion (animations)
+
+React PDF (document rendering)
+
+Axios (API communication)
+
+Dev Tools
+
+pnpm (package manager)
+
+ESLint (linting)
+
+Vercel (deployment)
+
+🚀 Getting Started
+Requirements
+
+Node.js (v18+)
+
+Python (3.8+)
+
+OpenAI API key
+
+Setup
+git clone https://github.com/your-username/contest-doge.git
+cd contest-doge
+Install Frontend
+pnpm install
+Install Backend
+cd backend
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+pip install -r ../requirements.txt
+cd ..
+Environment Variables
+
+Create .env.local:
+
+OPENAI_API_KEY=your_api_key_here
+Run Application
+
+Backend:
+
+cd backend
+python main.py
+
+Frontend:
+
+pnpm dev
+
+Access the app at:
+👉 http://localhost:3000
+
+📁 Project Layout
 contest-doge/
-├── app/                          # Next.js frontend application
-│   ├── api/                      # API routes
-│   │   ├── compare/              # Document comparison endpoint
-│   │   ├── healthz/              # Health check endpoint
-│   │   └── test-pdf/             # PDF testing endpoint
-│   ├── components/               # React components
-│   │   ├── homepage/             # Homepage-specific components
-│   │   ├── interactive/          # Interactive UI components
-│   │   └── layout/               # Layout components
-│   ├── compare/                  # Comparison pages
-│   └── globals.css               # Global styles
-├── backend/                      # FastAPI backend
-│   ├── main.py                   # Main FastAPI application
-│   └── venv/                     # Python virtual environment
-├── lib/                          # Utility libraries
-├── public/                       # Static assets
-└── requirements.txt              # Python dependencies
-```
+├── app/                # Frontend (Next.js)
+├── backend/            # FastAPI server
+├── components/         # UI components
+├── lib/                # Utility functions
+├── public/             # Static assets
+└── requirements.txt    # Backend dependencies
+🔌 API Routes
+Backend
 
-## 🔧 API Endpoints
+GET / → Basic health check
 
-### Backend (FastAPI)
+GET /health → System + AI status
 
-- `GET /` - Health check
-- `GET /health` - Detailed health check with OpenAI status
-- `POST /api/test-pdf` - Test PDF text extraction
-- `POST /api/compare` - Compare two PDF documents
+POST /api/compare → Document comparison
 
-### Frontend (Next.js)
+POST /api/test-pdf → PDF extraction test
 
-- `GET /api/compare` - Proxy to backend comparison endpoint
-- `GET /api/healthz` - Frontend health check
-- `GET /api/test-pdf` - Frontend PDF testing endpoint
+Frontend
 
-## 🎨 UI Components
+/api/compare → Proxy endpoint
 
-The application includes a comprehensive set of React components:
+/api/healthz → Frontend status
 
-- **Document Processing:** `FileDropzone`, `FileUpload`
-- **Analysis Display:** `ExecutiveSummary`, `KeyChanges`, `StakeholderAnalysis`, `ImpactForecast`
-- **Interactive Visualizations:** `StakeholderChart`, `SectorImpactVisualization`, `TimelineForecast`
-- **Document Comparison:** `DiffViewer`, `LineByLineViewer`
-- **UI Elements:** `Card`, `SkeletonLoader`, `LoadingAnimation`
+/api/test-pdf → Testing endpoint
 
-## 🔒 Security & Privacy
+🎨 Interface Modules
 
-- **No Data Retention:** Documents are processed in memory and deleted after analysis
-- **Encrypted Processing:** All data transmission uses HTTPS
-- **Privacy Protected:** No user tracking or data collection
-- **Secure API:** OpenAI API calls are made server-side with proper error handling
+File Upload & Processing
 
-## 🤝 Contributing
+AI Summary Dashboard
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Stakeholder Visualization Charts
 
-## 📄 License
+Timeline Impact Forecast
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Side-by-Side Document Viewer
 
----
+Interactive Data Cards
 
-This README.md provides a comprehensive guide to your project, showcasing the FastAPI + OpenAI architecture and the sophisticated frontend components. The platform is designed for government use with a professional, accessible interface that makes legislative analysis accessible to everyone.
+🔐 Security & Privacy
+
+No file storage (processed in-memory)
+
+HTTPS-secured communication
+
+No user tracking or analytics
+
+Server-side API handling for security
+
+🤝 Contributing
+
+Contributions are welcome:
+
+git checkout -b feature/your-feature
+git commit -m "Add feature"
+git push origin feature/your-feature
+
+Then open a Pull Request.
+
+📜 License
+
+This project is licensed under the MIT License.
+
+
+Doge aims to democratize access to legislative understanding by making complex policies transparent, interactive, and accessible to everyone—from experts to everyday citizens.
